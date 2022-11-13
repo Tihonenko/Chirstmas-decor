@@ -1,0 +1,15 @@
+.nav__container {
+    @apply flex justify-between items-center fixed top-0
+}
+
+
+.menu {
+    @apply cursor-pointer 
+    
+    transition-all delay-300 ease-in
+    
+}
+
+.menu_active {
+    @apply opacity-0
+}

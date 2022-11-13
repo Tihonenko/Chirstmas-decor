@@ -1,0 +1,16 @@
+.modal__bg {
+	@apply min-w-[100vw] min-h-[100vh] bg-lightblack/40 top-0 left-0 fixed flex z-20 justify-center items-center opacity-0 pointer-events-none;
+
+	&.modal__active {
+		@apply opacity-100 transition-opacity delay pointer-events-auto;
+	}
+
+	&.modal__close {
+		@apply opacity-0 transition-opacity delay;
+	}
+}
+
+.image__label {
+	@apply w-full cursor-pointer text-center bg-lightwhite rounded-btn text-lightblack  py-[4px] px-[26px] 
+	hover:text-lightwhite hover:bg-lightblack;
+}

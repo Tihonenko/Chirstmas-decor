@@ -1,0 +1,21 @@
+
+
+.hero__second__text {
+    @apply text-lg font-semibold mt-96
+    2xl:mt-80
+    xl:mt-48
+    lg:mt-40 lg:text-4xl
+}
+
+.hero__main__text {
+    @apply text-9xl font-semibold -translate-x-2
+    lg:text-8xl
+}
+
+.p {
+    @apply text-base 
+    lg:text-sm
+}
+
+
+

@@ -1,0 +1,6 @@
+.SubmitBtn {
+	@apply text-center inline-block max-w-[100px] pb-[10px] pt-[8px] px-3 max-h-[40px] border border-lightwhite rounded-btn bg-lightwhite text-lightblack
+    hover:bg-lightred hover:text-lightwhite hover:border-lightred hover:-translate-y-[1px]
+    active:translate-y-[2px]
+    disabled:cursor-default disabled:opacity-50 disabled:hover:bg-lightwhite disabled:hover:text-lightblack;
+}

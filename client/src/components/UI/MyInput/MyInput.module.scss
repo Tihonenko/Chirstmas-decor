@@ -1,0 +1,8 @@
+.MyInput {
+	@apply outline-none px-4 py-2 rounded-btn min-w-[240px]
+    transition-all border border-gray-400 bg-white
+    
+    focus:text-lightblack placeholder:text-gray-400
+    focus:placeholder:opacity-0 focus:placeholder:transition-all ease-in delay-100
+    focus:border focus:border-lightblack;
+}

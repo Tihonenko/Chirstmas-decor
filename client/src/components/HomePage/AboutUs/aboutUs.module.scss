@@ -1,0 +1,15 @@
+.aboutUs__container {
+	@apply border-2 border-solid border-lightwhite pb-10 mb-10;
+
+	& > div {
+		@apply container flex flex-col items-center text-center;
+	}
+}
+
+.aboutUs__title {
+	@apply text-lg font-medium inline-block mb-4;
+}
+
+.aboutUs__text {
+	@apply inline-block text-base mb-8;
+}
