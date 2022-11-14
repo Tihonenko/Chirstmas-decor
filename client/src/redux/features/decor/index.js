@@ -53,8 +53,6 @@ export const getOneDecor = createAsyncThunk(
 		try {
 			const { data } = await $host.get(`/decor/${id}`);
 
-			dispatch(setOneItem(data));
-
 			return data;
 		} catch (e) {
 			error(e.response.data.message);
@@ -69,9 +67,6 @@ export const decorSlice = createSlice({
 		setSelectedDecor(state, action) {
 			state.setSelectDecorTypeId = action.payload._id;
 			state.setSelectDecorType = action.payload;
-		},
-		setOneItem(state, action) {
-			state.itemOne = action.payload;
 		}
 
 		// filter(state, action) {
@@ -116,6 +111,7 @@ export const decorSlice = createSlice({
 		},
 		[getOneDecor.fulfilled]: (state, action) => {
 			state.isLoading = false;
+			state.itemOne = action.payload;
 		},
 		[getOneDecor.rejected]: state => {
 			state.isLoading = false;

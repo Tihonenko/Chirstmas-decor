@@ -7,7 +7,7 @@ const ShopHome = () => {
 	return (
 		<div className="container flex flex-1 gap-6 mt-10">
 			{dataShopHome.map((obj, idx) => (
-				<Link href={obj.link} key={`shop item ${idx}`} className="text-center">
+				<Link to={obj.link} key={`shop item ${idx}`} className="text-center">
 					<img
 						src={obj.img}
 						alt={obj.title}

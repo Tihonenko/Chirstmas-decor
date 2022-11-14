@@ -1,20 +1,24 @@
 import React from "react";
 import { SaleBanner } from "../../components/";
 import sl from "./pageItem.module.scss";
-import { ShopBtn } from "../../components/UI";
+import { Circular, ShopBtn } from "../../components/UI";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOneDecor, selectDecor, setDa } from "../../redux/features/decor";
+import { getOneDecor, selectDecor } from "../../redux/features/decor";
 
 const PageItem = () => {
 	const params = useParams();
 	const dispatch = useDispatch();
-	const { itemOne: item } = useSelector(selectDecor);
+	const { itemOne: item, isLoading } = useSelector(selectDecor);
 
 	useEffect(() => {
 		dispatch(getOneDecor(params));
 	}, []);
+
+	if (isLoading) {
+		return <Circular />;
+	}
 
 	return (
 		<>

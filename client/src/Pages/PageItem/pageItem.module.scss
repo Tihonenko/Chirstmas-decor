@@ -10,7 +10,7 @@
 	@apply flex flex-col text-left;
 
 	& > h2 {
-		@apply font-semibold text-lg mt-5 mb-[10px];
+		@apply font-semibold text-4xl mt-5 mb-[10px];
 	}
 
 	& > h4 {
@@ -19,7 +19,7 @@
 }
 
 .description_text {
-	@apply w-3/5 text-justify mb-10;
+	@apply w-4/5 mb-10;
 }
 
 .footer_item {
