@@ -9,6 +9,9 @@ const Basket = () => {
 			<h2 className={sl.title__basket}>Your Basket</h2>
 			<div className="flex flex-col gap-3 items-center">
 				<BasketItem />
+				<BasketItem />
+				<BasketItem />
+				<BasketItem />
 			</div>
 		</section>
 	);
