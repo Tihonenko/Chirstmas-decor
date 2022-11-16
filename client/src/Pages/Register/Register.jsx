@@ -14,21 +14,20 @@ const Register = () => {
 		handleSubmit,
 		reset,
 		setFocus,
-		formState: { errors, isValid },
+		formState: { errors, isValid }
 	} = useForm({
 		defaultValues: {
 			email: "",
-			password: "",
+			password: ""
 		},
-		mode: "onChange",
+		mode: "onChange"
 	});
 
 	useEffect(() => {
-		setFocus("email")
+		setFocus("email");
 	}, []);
 
-
-	const onSubmit = async (value) => {
+	const onSubmit = async value => {
 		const data = await dispatch(registerUser(value));
 		if ("token" in data.payload) {
 			window.localStorage.setItem("token", data.payload);
@@ -45,12 +44,13 @@ const Register = () => {
 			<h2 className="text-lg font-medium text-center">Create Account</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn">
+				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn"
+			>
 				<label className="flex flex-col gap-3">
 					Email Addres:
 					<MyInput
 						{...register("email", {
-							required: "Email requried field",
+							required: "Email requried field"
 						})}
 						type="email"
 						errorsText={errors.email?.message}
@@ -65,8 +65,8 @@ const Register = () => {
 							required: "Password reqiried field",
 							minLength: {
 								value: 5,
-								message: "Password min length 5 symbols",
-							},
+								message: "Password min length 5 symbols"
+							}
 						})}
 					/>
 				</label>

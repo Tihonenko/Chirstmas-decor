@@ -11,8 +11,9 @@ const UserSchema = new mongoose.Schema(
 );
 
 const BasketSchema = new mongoose.Schema({
-	basketDecorId: [
-		{ type: mongoose.Schema.Types.ObjectId, ref: "basketDecor" },
+	basketDecorId: [{ type: mongoose.Schema.Types.ObjectId, ref: "decor" }],
+	basketShopItemsId: [
+		{ type: mongoose.Schema.Types.ObjectId, ref: "shopItem" },
 	],
 	userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
 });
@@ -28,7 +29,7 @@ const DecorSchema = new mongoose.Schema({
 	price: { type: String, required: true },
 	img: { type: String, required: true },
 
-	basketDecorId: { type: mongoose.Schema.Types.ObjectId, ref: "basketDecor" },
+	basketDecorId: { type: mongoose.Schema.Types.ObjectId, ref: "basket" },
 	typesId: { type: mongoose.Schema.Types.ObjectId, ref: "type" },
 });
 
@@ -43,6 +44,7 @@ const ShopItemSchema = new mongoose.Schema({
 	price: { type: String, required: true },
 	img: { type: String, required: true },
 
+	basketShopId: { type: mongoose.Schema.Types.ObjectId, ref: "basket" },
 	shopTypeId: { type: mongoose.Schema.Types.ObjectId, ref: "shopTypes" },
 });
 

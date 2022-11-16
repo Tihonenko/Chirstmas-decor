@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneDecor, selectDecor } from "../../redux/features/decor";
+import { addDecorItem } from "../../redux/features/basket/basket";
 
 const PageItem = () => {
 	const params = useParams();
@@ -35,7 +36,7 @@ const PageItem = () => {
 
 					<div className={sl.page__content}>
 						<button
-							onClick={() => dispatch()}
+							onClick={() => dispatch(addDecorItem(item))}
 							className="text-left hover:text-lightred"
 						>
 							Add to cart

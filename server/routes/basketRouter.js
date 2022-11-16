@@ -3,8 +3,9 @@ import basketController from "../controllers/basketController.js";
 import CheckAuth from "../utils/checkAuth.js";
 const router = new Router();
 
-router.post("/", CheckAuth, basketController.addItem);
-router.get("/", CheckAuth);
+router.post("/decor", CheckAuth, basketController.addDecorItem);
+router.post("/shop", CheckAuth, basketController.addShopItem);
+router.get("/", CheckAuth, basketController.getBasket);
 router.delete("/", CheckAuth);
 
 export default router;

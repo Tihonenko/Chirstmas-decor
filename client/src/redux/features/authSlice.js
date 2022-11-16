@@ -81,7 +81,7 @@ const authSlice = createSlice({
 			state.status = "loaded";
 			state.isLoading = false;
 			state.role = action.payload.user.role;
-			state.data.push(action.payload.user);
+			state.data.push(action.payload);
 		},
 		[registerUser.rejected]: (state, action) => {
 			state.status = "error";
