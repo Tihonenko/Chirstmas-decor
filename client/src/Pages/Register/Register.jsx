@@ -40,7 +40,7 @@ const Register = () => {
 		return <Navigate to="/User" />;
 	}
 	return (
-		<div className="container min-h-full flex-auto pt-10">
+		<section className="container min-h-full flex-auto pt-10">
 			<h2 className="text-lg font-medium text-center">Create Account</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
@@ -79,7 +79,7 @@ const Register = () => {
 					</Link>
 				</div>
 			</form>
-		</div>
+		</section>
 	);
 };
 

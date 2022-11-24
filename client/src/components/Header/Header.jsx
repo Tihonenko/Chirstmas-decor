@@ -17,7 +17,7 @@ const Header = () => {
 						DECOR
 					</Link>
 
-					<ul className="flex gap-[40px]">
+					<ul className="flex gap-[40px] md:hidden">
 						{dataNav.map((obj, idx) => (
 							<li key={idx}>
 								<Link
@@ -54,15 +54,20 @@ const Header = () => {
 								/>
 								<div
 									className={`${
-										isActive ? "flex" : "hidden"
-									} min-w-[200px] absolute z-50 top-[80px] right-0 mx-4 my-2 bg-lightblack`}
+										isActive ? "flex flex-col" : "hidden"
+									} min-w-[200px] absolute z-50 top-[80px] -right-4 mx-4 my-2 bg-lightblack md:w-full md:justify-center md:text-base md:text-center `}
 								>
-									<ul className="flex-row gap-[40px] text-lightwhite">
-										<li>
-											<Link to="#" className="hover:text-lightred">
-												Menu
-											</Link>
-										</li>
+									<ul className="flex flex-col text-lightwhite gap-5  md:visible">
+										{dataNav.map((obj, idx) => (
+											<li key={idx} className="hidden md:contents">
+												<Link
+													to={obj.link}
+													className="a-hover text-base relative"
+												>
+													{obj.title}
+												</Link>
+											</li>
+										))}
 										<li>
 											<Link
 												to="RetroDecoration"

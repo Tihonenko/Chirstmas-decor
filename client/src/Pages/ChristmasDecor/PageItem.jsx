@@ -1,6 +1,6 @@
 import React from "react";
-import { SaleBanner } from "../../components/";
-import sl from "./pageItem.module.scss";
+import { SaleBanner } from "../../components";
+import sl from "./christmasDecor.module.scss";
 import { Circular, ShopBtn } from "../../components/UI";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOneDecor, selectDecor } from "../../redux/features/decor";
 import { addDecorItem } from "../../redux/features/basket/basket";
 
-const PageItem = () => {
+const PageItem = ({ getOne }) => {
 	const params = useParams();
 	const dispatch = useDispatch();
 	const { itemOne: item, isLoading } = useSelector(selectDecor);

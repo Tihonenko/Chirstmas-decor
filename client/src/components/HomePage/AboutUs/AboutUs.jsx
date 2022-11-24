@@ -4,7 +4,7 @@ import sl from "./aboutUs.module.scss";
 
 const AboutUs = () => {
 	return (
-		<div className={sl.aboutUs__container}>
+		<section className={sl.aboutUs__container}>
 			<div>
 				<h2 className={sl.aboutUs__title}>About Us</h2>
 				<p className={sl.aboutUs__text}>
@@ -17,7 +17,7 @@ const AboutUs = () => {
 				</p>
 				<ReadMore to="">Read more...</ReadMore>
 			</div>
-		</div>
+		</section>
 	);
 };
 

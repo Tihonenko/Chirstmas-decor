@@ -22,13 +22,8 @@ export const dataShopHome = [
 	},
 	{
 		img: sweets,
-		title: "Christmas Sweets",
-		link: "#"
-	},
-	{
-		img: gift,
-		title: "Christmas Gift",
-		link: "#"
+		title: "Christmas Shop",
+		link: "Shop"
 	}
 ];
 
@@ -36,28 +31,27 @@ export const dataPopular = [
 	{
 		title: "Christmas Lighting",
 		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
-		img: Lighting
+		img: Lighting,
+		_id: "635d03d478fe16022dceec4a"
 	},
 
 	{
 		title: "Christmas Balls",
 		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
-		img: Balls
+		img: Balls,
+		_id: "636b843fc13f79d73d9d7f87"
 	},
 	{
 		title: "Christmas Ribbon",
 		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
-		img: Ribbon
+		img: Ribbon,
+		_id: "636401bb155a75993408cea4"
 	},
 	{
 		title: "Christmas Ribbon",
 		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
-		img: Ribbon
-	},
-	{
-		title: "Christmas Ribbon",
-		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
-		img: Ribbon
+		img: Ribbon,
+		_id: "636401bb155a75993408cea4"
 	}
 ];
 
@@ -116,7 +110,7 @@ export const Contact = [
 export const Navigation = [
 	{
 		title: "Home",
-		link: ""
+		link: "/"
 	},
 	{
 		title: "About Us",
@@ -124,7 +118,7 @@ export const Navigation = [
 	},
 	{
 		title: "News",
-		link: "#"
+		link: "News"
 	},
 	{
 		link: "ChristmasDecor",

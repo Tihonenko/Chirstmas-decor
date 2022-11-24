@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import sl from "./popularDecor.module.scss";
+import "../../../";
 import { ShopBtn } from "../../UI";
 import { dataPopular } from "../../../constans";
-import { useSelector } from "react-redux";
-import { selectDecor } from "../../../redux/features/decor";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	getAllDecor,
+	selectDecor,
+	setSelectedDecor
+} from "../../../redux/features/decor";
+import { selectTypes } from "../../../redux/features/typesDecor/typesSlice";
 
 const PopularDecor = () => {
-	const { setSelectDecorType } = useSelector(selectDecor);
+	const dispatch = useDispatch();
+	const { item } = useSelector(selectTypes);
 
 	return (
-		<div className="bg-lightwhite mt-10 pt-[10px] pb-5 snap-center">
+		<section className="bg-lightwhite mt-10 pt-[10px] pb-5 snap-center">
 			<div className="container">
 				<h1 className="block text-center font-medium text-lg">
 					Christmas Popular Decor
@@ -19,12 +26,12 @@ const PopularDecor = () => {
 					sprays and more.
 				</p>
 			</div>
-			<div className="containerCorusel overflow-hidden">
-				<div className={`${sl.corusel__content} scroll`}>
+			<div className={`containerCorusel overflow-hidden`}>
+				<div className={`corusel__content scroll`}>
 					{dataPopular.map((obj, idx) => (
 						<div
 							key={`popular item ${idx}`}
-							className=" bg-white block min-w-[343px] shadow-lg snap-end"
+							className=" bg-white block min-w-[343px]  sxl:min-w-[48.5%] smd:min-w-[100%] shadow-lg snap-end"
 						>
 							<div className="h-[10px] w-full bg-lightblack"> </div>
 							<div className="px-3 pb-3">
@@ -37,11 +44,14 @@ const PopularDecor = () => {
 									<img
 										src={obj.img}
 										alt={obj.title}
-										className="w-[319px] h-[246px] object-cover hover:scale-110 transition duration-200"
+										className="w-[319px] h-[246px] sxl:w-full object-cover hover:scale-110 transition duration-200"
 									/>
 								</div>
 								<div className="flex justify-center">
-									<ShopBtn to={`/ChristmasDecor?typesId=${setSelectDecorType}`}>
+									<ShopBtn
+										to={`/ChristmasDecor`}
+										onClick={() => dispatch(setSelectedDecor(obj))}
+									>
 										SHOP
 									</ShopBtn>
 								</div>
@@ -50,7 +60,7 @@ const PopularDecor = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

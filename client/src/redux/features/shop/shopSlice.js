@@ -8,6 +8,7 @@ const error = arg => {
 
 const initialState = {
 	item: [],
+	itemOne: {},
 	isLoading: false,
 	isError: false,
 	setSelectShopTypeId: "63663575cbbe866fa6b57d89",
@@ -23,6 +24,18 @@ export const getAllShop = createAsyncThunk("shop/getAllShop", async arg => {
 				shopTypeId
 			}
 		});
+
+		return data;
+	} catch (e) {
+		error(e.response.data.message);
+	}
+});
+
+export const getOneShop = createAsyncThunk("shop/getOneShop", async params => {
+	try {
+		const { id } = params;
+
+		const { data } = await $host.get(`/shopitem/${id}`);
 
 		return data;
 	} catch (e) {
@@ -56,11 +69,25 @@ const shopSlice = createSlice({
 			state.isError = false;
 		},
 		[getAllShop.fulfilled]: (state, action) => {
-			state.item = action.payload?.shopItem;
+			state.item = action.payload.shopItems;
 			state.isLoading = false;
 		},
 		[getAllShop.rejected]: state => {
 			state.item = [];
+			state.isError = true;
+		},
+
+		// One Item
+		[getOneShop.pending]: state => {
+			state.isLoading = true;
+			state.isError = false;
+		},
+		[getOneShop.fulfilled]: (state, action) => {
+			state.itemOne = action.payload;
+			state.isLoading = false;
+		},
+		[getOneShop.rejected]: state => {
+			state.itemOne = {};
 			state.isError = true;
 		},
 		// Creata shop
@@ -79,5 +106,7 @@ const shopSlice = createSlice({
 	}
 });
 
+export const selectShop = state => state.shop;
 export const { selectShopType } = shopSlice.actions;
+
 export const shop = shopSlice.reducer;

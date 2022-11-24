@@ -5,21 +5,21 @@ import {
 	PopularDecor,
 	AboutUs,
 	CardInfo,
-	Footer,
+	Footer
 } from "../../components/";
 import sl from "./homePage.module.scss";
 import HeroSection from "../../components/HomePage/HeroSection/HeroSection";
 
 const HomePage = () => {
 	return (
-		<div className={sl.home__container}>
+		<main className={sl.home__container}>
 			<HeroSection />
 			<SaleBanner />
 			<ShopHome />
 			<PopularDecor />
 			<AboutUs />
 			<CardInfo />
-		</div>
+		</main>
 	);
 };
 

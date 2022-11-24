@@ -6,8 +6,10 @@ import Register from "./Register/Register";
 import User from "./User/User";
 import AdminPage from "./AdminPage/AdminPage";
 import Shop from "./Shop/Shop";
-import PageItem from "./PageItem/PageItem";
+import PageItem from "./ChristmasDecor/PageItem";
 import Basket from "./Basket/Basket";
+import ShopPageItem from "./Shop/ShopPageItem";
+import News from "./News/News";
 
 export {
 	HomePage,
@@ -19,5 +21,7 @@ export {
 	AdminPage,
 	Shop,
 	PageItem,
-	Basket
+	Basket,
+	ShopPageItem,
+	News
 };

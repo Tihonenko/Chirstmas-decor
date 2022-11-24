@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const News = () => {
-  return (
-    <div>News</div>
-  )
-}
+	return (
+		<section className="container middle__content mt-10">
+			<div>NEWS</div>
+		</section>
+	);
+};
 
-export default News
+export default News;

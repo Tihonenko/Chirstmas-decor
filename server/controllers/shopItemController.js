@@ -31,9 +31,7 @@ class shopItemController {
 
 			const { image } = req.files;
 			let fileName = uuidv4() + ".jpg";
-			image.mv(
-				path.resolve(__dirname, "..", "assets/static/image", fileName)
-			);
+			image.mv(path.resolve(__dirname, "..", "assets/static/image", fileName));
 
 			const shopItem = await ShopItem.create({
 				title,
@@ -47,9 +45,7 @@ class shopItemController {
 				$push: { shopItemId: shopItem },
 			});
 
-			return res
-				.status(200)
-				.json({ shopItem, message: "Shop item created" });
+			return res.status(200).json({ shopItem, message: "Shop item created" });
 		} catch (e) {
 			console.log(e);
 			res.status(500).json({ message: "Server error" });
@@ -82,7 +78,6 @@ class shopItemController {
 		try {
 			const { id } = req.params;
 			const shopItem = await ShopItem.findOne({ _id: id });
-			console.log(id, shopItem);
 			if (!shopItem) {
 				return res.status(404).json({ message: "Server error" });
 			}

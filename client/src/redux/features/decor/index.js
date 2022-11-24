@@ -47,7 +47,7 @@ export const getAllDecor = createAsyncThunk("decor/getAllDecor", async arg => {
 
 export const getOneDecor = createAsyncThunk(
 	"decor/getOneDecor",
-	async (params, { dispatch }) => {
+	async params => {
 		const { id } = params;
 
 		try {

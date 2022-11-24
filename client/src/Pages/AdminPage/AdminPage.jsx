@@ -29,7 +29,7 @@ const AdminPage = () => {
 	}
 
 	return (
-		<div className="container middle__content mt-10">
+		<section className="container middle__content mt-10">
 			<div className="flex flex-col gap-5">
 				<AdminButton onClick={() => setDecorModalActive(true)}>
 					Create Decor
@@ -66,7 +66,7 @@ const AdminPage = () => {
 				active={typesShopActive}
 				setActive={setTypesShopActive}
 			/>
-		</div>
+		</section>
 	);
 };
 

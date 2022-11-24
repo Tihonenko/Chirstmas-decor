@@ -4,7 +4,7 @@ import sl from "./cardInfo.module.scss";
 
 const CardInfo = () => {
 	return (
-		<div className="container flex gap-5 mb-20">
+		<section className="container flex gap-5 mb-20 md:flex-wrap ">
 			{dataCard.map((obj, idx) => (
 				<div className={sl.card__container} key={idx}>
 					<img src={obj.img} alt={obj.title} />
@@ -12,7 +12,7 @@ const CardInfo = () => {
 					<p>{obj.body}</p>
 				</div>
 			))}
-		</div>
+		</section>
 	);
 };
 

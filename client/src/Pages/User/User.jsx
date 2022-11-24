@@ -24,7 +24,7 @@ const User = () => {
 	};
 
 	return (
-		<div className="container middle__content pt-10">
+		<section className="container middle__content pt-10">
 			{/* Проверяем авторизацию пользователя */}
 			{isAuth ? (
 				<div className="flex justify-between">
@@ -42,7 +42,7 @@ const User = () => {
 			) : (
 				<Navigate to="/Register" />
 			)}
-		</div>
+		</section>
 	);
 };
 

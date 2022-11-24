@@ -36,14 +36,14 @@ const Shop = () => {
 	}, [setSelectShopTypeId]);
 
 	return (
-		<div className="middle__content">
+		<section className="middle__content">
 			<SaleBanner className={`mb-5`} />
-			<div className="container flex gap-10 mt-10">
+			<div className="container flex flex-auto gap-10 mt-10 md:gap-2">
 				<ul className={sl.aside__list}>
 					{/* Выводим боковое меню, если оно есть */}
 					{types?.map(item => (
 						<AsideItem
-							active={item._id === setSelectShopType._id}
+							active={item._id === setSelectShopTypeId}
 							item={item}
 							key={item._id}
 							onClick={() => dispatch(selectShopType(item))}
@@ -53,12 +53,12 @@ const Shop = () => {
 				{isLoading ? (
 					<Circular />
 				) : (
-					<div className="h-full flex-auto">
-						<h2 className="text-lg capitalize">
-							{setSelectShopType?.name || "Shop"}
+					<div className="h-full flex flex-col flex-auto md:items-center md:w-[300px]">
+						<h2 className="text-lg md:text-center md:w-[300px] ">
+							{setSelectShopType?.name || "Candies"}
 						</h2>
 
-						<div className="mt-7 flex gap-10 flex-wrap xl:gap-4">
+						<div className="mt-7 flex flex-1 gap-10 xl:gap-4 md:flex-wrap md:justify-center md:w-[300px]">
 							{/* Выводим элементы магазина */}
 							{shop?.map(item => (
 								<ShopItem item={item} key={item._id} />
@@ -67,7 +67,7 @@ const Shop = () => {
 					</div>
 				)}
 			</div>
-		</div>
+		</section>
 	);
 };
 

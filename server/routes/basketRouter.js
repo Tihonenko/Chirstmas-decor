@@ -6,6 +6,6 @@ const router = new Router();
 router.post("/decor", CheckAuth, basketController.addDecorItem);
 router.post("/shop", CheckAuth, basketController.addShopItem);
 router.get("/", CheckAuth, basketController.getBasket);
-router.delete("/", CheckAuth);
+router.delete("/:id", CheckAuth, basketController.removeBasketItem);
 
 export default router;

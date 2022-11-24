@@ -47,9 +47,9 @@ const ChristmasDecor = () => {
 	}
 
 	return (
-		<div className="middle__content">
+		<section className="middle__content">
 			<SaleBanner className={`mb-5`} />
-			<div className="container flex gap-10 mt-10">
+			<div className="container flex flex-auto gap-10 mt-10 md:gap-2">
 				<ul className={sl.aside__list}>
 					{types?.map(item => (
 						<AsideItem
@@ -63,12 +63,12 @@ const ChristmasDecor = () => {
 				{isLoading ? (
 					<Circular />
 				) : (
-					<div className="h-full flex-auto">
-						<h2 className="text-lg">
+					<div className="h-full flex flex-col flex-auto md:items-center md:w-[300px]">
+						<h2 className="text-lg md:text-center md:w-[300px] ">
 							Christmas {setSelectDecorType?.name || "Lighting"}
 						</h2>
 
-						<div className="mt-7 flex gap-10 flex-wrap xl:gap-4">
+						<div className="mt-7 flex flex-1 gap-10 xl:gap-4 md:flex-wrap md:justify-center md:w-[300px]">
 							{decor?.map(item => (
 								<ShopItem item={item} key={item._id} />
 							))}
@@ -76,7 +76,7 @@ const ChristmasDecor = () => {
 					</div>
 				)}
 			</div>
-		</div>
+		</section>
 	);
 };
 

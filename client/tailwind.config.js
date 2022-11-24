@@ -5,23 +5,25 @@ module.exports = {
 		screens: {
 			"2xl": { max: "1536px" },
 			xl: { max: "1280px" },
+			sxl: { max: "1180px" },
 			lg: { max: "992px" },
 			md: { max: "768px" },
-			sm: { max: "480px" },
+			smd: { max: "512px" },
+			sm: { max: "480px" }
 		},
 		container: {
 			padding: "20px",
-			center: true,
+			center: true
 		},
 
 		extend: {
 			colors: {
 				lightblack: "#3B3C40",
 				lightwhite: "#F2F2F0",
-				lightred: "#FF6D6D",
+				lightred: "#FF6D6D"
 			},
 			fontFamily: {
-				Montserrat: "Montserrat",
+				Montserrat: "Montserrat"
 			},
 
 			fontSize: {
@@ -30,30 +32,30 @@ module.exports = {
 				base: "1.38rem",
 				logo: "2.25rem",
 				xl: "8rem",
-				decor: "[132px]",
+				decor: "[132px]"
 			},
 			transitionDelay: {
-				DEFAULT: "1000",
+				DEFAULT: "1000"
 			},
 			transitionTimingFunction: {
-				DEFAULT: "ease-out",
+				DEFAULT: "ease-out"
 			},
 			borderRadius: {
 				DEFAULT: "15px",
-				btn: "7px",
+				btn: "7px"
 			},
 			borderColor: {
-				DEFAULT: "#F2F2F0",
+				DEFAULT: "#F2F2F0"
 			},
 			transitionProperty: {
 				drop: "opacity, translate",
-				spacing: "margin, padding",
-			},
-		},
+				spacing: "margin, padding"
+			}
+		}
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/line-clamp"),
-		require("@tailwindcss/aspect-ratio"),
-	],
+		require("@tailwindcss/aspect-ratio")
+	]
 };

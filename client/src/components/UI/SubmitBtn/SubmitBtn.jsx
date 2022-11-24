@@ -6,7 +6,8 @@ const SubmitBtn = ({ children, disabled, ...props }) => {
 		<button
 			disabled={disabled}
 			{...props}
-			className={`${props.className} ${sl.SubmitBtn}`}>
+			className={`${props.className} ${sl.SubmitBtn}`}
+		>
 			{children}
 		</button>
 	);

@@ -9,19 +9,18 @@ const Login = () => {
 	const isAuth = useSelector(selectIsAuth);
 	const dispatch = useDispatch();
 
-
 	const {
 		register,
 		handleSubmit,
 		reset,
 		setFocus,
-		formState: { errors, isValid },
+		formState: { errors, isValid }
 	} = useForm({
 		defaultValues: {
-			email: '',
-			password: '',
+			email: "",
+			password: ""
 		},
-		mode: 'onChange',
+		mode: "onChange"
 	});
 
 	useEffect(() => {
@@ -30,8 +29,8 @@ const Login = () => {
 
 	const onSubmit = async value => {
 		const data = await dispatch(loginUser(value));
-		if ('token' in data.payload) {
-			window.localStorage.setItem('token', data.payload);
+		if ("token" in data.payload) {
+			window.localStorage.setItem("token", data.payload);
 		}
 
 		reset();
@@ -42,17 +41,18 @@ const Login = () => {
 	}
 
 	return (
-		<div className="container min-h-full flex-auto pt-10">
+		<section className="container min-h-full flex-auto pt-10">
 			<h2 className="text-lg font-medium text-center">Sign In</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn">
+				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn"
+			>
 				<label className="flex flex-col gap-3">
 					Email Addres:
 					<MyInput
 						type="email"
-						{...register('email', {
-							required: 'Email required field',
+						{...register("email", {
+							required: "Email required field"
 						})}
 						errorsText={errors.email?.message}
 					/>
@@ -61,12 +61,12 @@ const Login = () => {
 					Password:
 					<MyInput
 						type="password"
-						{...register('password', {
-							required: 'Password required field',
+						{...register("password", {
+							required: "Password required field",
 							minLength: {
 								value: 5,
-								message: 'Password min length 5 symbols',
-							},
+								message: "Password min length 5 symbols"
+							}
 						})}
 						errorsText={errors.password?.message}
 					/>
@@ -80,7 +80,7 @@ const Login = () => {
 					</Link>
 				</div>
 			</form>
-		</div>
+		</section>
 	);
 };
 

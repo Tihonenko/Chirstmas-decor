@@ -16,9 +16,6 @@
 	.container {
 		@apply max-w-[1075px];
 	}
-	.containerCorusel {
-		@apply max-w-[1110px] mx-auto w-full px-5;
-	}
 }
 
 #root {
@@ -83,4 +80,12 @@ body {
 
 .middle__content {
 	@apply min-h-full flex-auto;
+}
+
+.corusel__content {
+	@apply flex gap-5 flex-nowrap overflow-x-scroll scroll-smooth  snap-x;
+}
+
+.containerCorusel {
+	@apply max-w-[1110px]  mx-auto w-full px-5;
 }

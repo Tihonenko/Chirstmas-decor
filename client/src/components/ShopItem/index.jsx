@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ShopItem = ({ item }) => {
 	return (
 		<>
-			<div className="flex flex-col basis-60 items-center lg:basis-[300px] ">
+			<div className="flex flex-col basis-1/3 items-center lg:basis-1/2 md:basis-full sm">
 				<div className="mb-2 w-full ">
 					<img
 						src={`${process.env.REACT_APP_API_URL}/${item.img}`}

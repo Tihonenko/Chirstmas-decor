@@ -14,7 +14,7 @@ const ModalShop = ({ active, setActive, createItem }) => {
 	const [image, setImage] = useState("");
 	const [open, setOpen] = useState(false);
 
-	const dropHandler = (item) => {
+	const dropHandler = item => {
 		dispatch(setFocus(item));
 		setOpen(!open);
 	};
@@ -49,25 +49,26 @@ const ModalShop = ({ active, setActive, createItem }) => {
 					? "opacity-100 transition-opacity delay pointer-events-auto"
 					: "opacity-0 transition-opacity delay "
 			}`}
-			onClick={() => setActive(false)}>
+			onClick={() => setActive(false)}
+		>
 			<div
 				className={`p-10 bg-lightwhite rounded min-h-[100px] min-w-[500px]  translate-y-24 opacity-0 ${
 					active
 						? "translate-y-0 opacity-100 transition-all delay"
 						: "transition-all delay"
 				}`}
-				onClick={(e) => e.stopPropagation()}>
+				onClick={e => e.stopPropagation()}
+			>
 				<form
-					onSubmit={(e) => e.preventDefault()}
-					className="flex flex-col gap-3">
-					<h3 className="font-semibold text-base mb-3">
-						Create Shop post
-					</h3>
+					onSubmit={e => e.preventDefault()}
+					className="flex flex-col gap-3"
+				>
+					<h3 className="font-semibold text-base mb-3">Create Shop post</h3>
 					<label className="flex flex-col gap-3">
 						Title:
 						<MyInput
 							value={title}
-							onChange={(e) => setTitle(e.target.value)}
+							onChange={e => setTitle(e.target.value)}
 							type="text"
 							className="w-full"
 						/>
@@ -79,7 +80,8 @@ const ModalShop = ({ active, setActive, createItem }) => {
 									? "bg-lightblack text-lightwhite rounded-t-btn transition-all delay-150"
 									: "rounded-btn z-10 transition-all delay"
 							} relative w-[146px] text-center`}
-							onClick={() => setOpen(!open)}>
+							onClick={() => setOpen(!open)}
+						>
 							{setSelectShopType.name || "Select Type"}
 						</ShopBtn>
 						<ul
@@ -87,8 +89,9 @@ const ModalShop = ({ active, setActive, createItem }) => {
 								open
 									? "opacity-100 -translate-y-1 z-10 transition-drop delay"
 									: "opacity-0 -translate-y-5 -z-20 transition-drop delay"
-							} absolute w-[146px] pt-1  text-center rounded-b-btn  flex flex-col gap-1 bg-lightblack text-lightwhite`}>
-							{item?.map((item) => (
+							} absolute w-[146px] pt-1  text-center rounded-b-btn  flex flex-col gap-1 bg-lightblack text-lightwhite`}
+						>
+							{item?.map(item => (
 								<DropDownItem
 									active={item._id === setSelectShopType._id}
 									onClick={() => dropHandler(item)}
@@ -102,7 +105,7 @@ const ModalShop = ({ active, setActive, createItem }) => {
 						Price:
 						<MyInput
 							value={price}
-							onChange={(e) => setPrice(e.target.value)}
+							onChange={e => setPrice(e.target.value)}
 							type="text"
 							className="w-full "
 						/>
@@ -111,17 +114,19 @@ const ModalShop = ({ active, setActive, createItem }) => {
 						Description:
 						<textarea
 							value={description}
-							onChange={(e) => setDescription(e.target.value)}
-							className="w-full min-h-[100px] transition-all border border-gray-400 bg-white rounded-btn outline-none px-4 py-2 text-lightblack focus:border-lightblack"></textarea>
+							onChange={e => setDescription(e.target.value)}
+							className="w-full min-h-[100px] transition-all border border-gray-400 bg-white rounded-btn outline-none px-4 py-2 text-lightblack focus:border-lightblack"
+						></textarea>
 					</label>
-					<label className="">
-						<ShopBtn className="rounded-btn w-full text-center">
-							Image
-						</ShopBtn>
+					<label
+						className=" w-full cursor-pointer text-center bg-lightwhite rounded-btn text-lightblack  py-[4px] px-[26px] 
+	hover:text-lightwhite hover:bg-lightblack"
+					>
+						Image
 						<MyInput
-							onChange={(e) => setImage(e.target.files[0])}
+							onChange={e => setImage(e.target.files[0])}
 							type="file"
-							className="mt-3 hidden"
+							className="hidden mt-3"
 						/>
 					</label>
 					<div className="flex object-cover justify-center">
@@ -129,7 +134,7 @@ const ModalShop = ({ active, setActive, createItem }) => {
 							<img
 								className="max-w-full max-h-[200px]"
 								src={URL.createObjectURL(image)}
-								alt=''
+								alt=""
 							/>
 						)}
 					</div>
@@ -138,12 +143,14 @@ const ModalShop = ({ active, setActive, createItem }) => {
 						<ShopBtn
 							onClick={submitHandler}
 							type="submit"
-							className="rounded-btn text-center hover:-translate-y-1 transition-transform delay">
+							className="rounded-btn text-center hover:-translate-y-1 transition-transform delay"
+						>
 							Create
 						</ShopBtn>
 						<button
 							onClick={clearHandler}
-							className="rounded-btn bg-lightred py-[4px] px-[26px] text-lightwhite hover:-translate-y-1 transition-all delay">
+							className="rounded-btn bg-lightred py-[4px] px-[26px] text-lightwhite hover:-translate-y-1 transition-all delay"
+						>
 							Clear
 						</button>
 					</div>
