@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { AsideNav } from "../../constans";
 
 const AsideItem = ({ active, item, ...props }) => {
 	return (

@@ -19,8 +19,8 @@ const BasketItem = item => {
 				/>
 			</div>
 			<div className="basis-2/3 flex flex-col justify-between">
-				<div className="flex justify-between items-start">
-					<h3 className="basis-1/2 text-base">{title}</h3>
+				<div className="flex flex-1 justify-between gap-5 items-start">
+					<h3 className="basis-4/5 text-base ">{title}</h3>
 					<button onClick={() => dispatch(removeBasketItem(_id))}>
 						<svg
 							width="16"

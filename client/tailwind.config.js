@@ -8,7 +8,7 @@ module.exports = {
 			sxl: { max: "1180px" },
 			lg: { max: "992px" },
 			md: { max: "768px" },
-			smd: { max: "512px" },
+			smd: { max: "534px" },
 			sm: { max: "480px" }
 		},
 		container: {
@@ -23,7 +23,8 @@ module.exports = {
 				lightred: "#FF6D6D"
 			},
 			fontFamily: {
-				Montserrat: "Montserrat"
+				Montserrat: "Montserrat",
+				Rembank: "Rembank"
 			},
 
 			fontSize: {

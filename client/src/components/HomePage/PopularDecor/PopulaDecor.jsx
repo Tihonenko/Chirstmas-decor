@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
-import sl from "./popularDecor.module.scss";
+import React from "react";
 import "../../../";
 import { ShopBtn } from "../../UI";
 import { dataPopular } from "../../../constans";
 import { useDispatch, useSelector } from "react-redux";
-import {
-	getAllDecor,
-	selectDecor,
-	setSelectedDecor
-} from "../../../redux/features/decor";
+import { setSelectedDecor } from "../../../redux/features/decor";
 import { selectTypes } from "../../../redux/features/typesDecor/typesSlice";
 
 const PopularDecor = () => {
@@ -18,7 +13,7 @@ const PopularDecor = () => {
 	return (
 		<section className="bg-lightwhite mt-10 pt-[10px] pb-5 snap-center">
 			<div className="container">
-				<h1 className="block text-center font-medium text-lg">
+				<h1 className="block text-center font-medium text-lg font-Rembank">
 					Christmas Popular Decor
 				</h1>
 				<p className="text-center text-base mt-4 mb-8">
@@ -38,7 +33,9 @@ const PopularDecor = () => {
 								<div></div>
 								<div>
 									<span className="text-base font-medium">{obj.title}</span>
-									<p>{obj.body}</p>
+									<p className="block min-h-[50px] md:min-h-[75px]">
+										{obj.body}
+									</p>
 								</div>
 								<div className="mb-3 overflow-hidden touch-auto">
 									<img
@@ -49,6 +46,7 @@ const PopularDecor = () => {
 								</div>
 								<div className="flex justify-center">
 									<ShopBtn
+										className="rounded-btn"
 										to={`/ChristmasDecor`}
 										onClick={() => dispatch(setSelectedDecor(obj))}
 									>

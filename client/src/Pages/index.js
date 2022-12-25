@@ -9,7 +9,8 @@ import Shop from "./Shop/Shop";
 import PageItem from "./ChristmasDecor/PageItem";
 import Basket from "./Basket/Basket";
 import ShopPageItem from "./Shop/ShopPageItem";
-import News from "./News/News";
+import AboutUs from "./AboutUs/AboutUs";
+import Sale from "./Sale/Sale";
 
 export {
 	HomePage,
@@ -23,5 +24,6 @@ export {
 	PageItem,
 	Basket,
 	ShopPageItem,
-	News
+	AboutUs,
+	Sale
 };

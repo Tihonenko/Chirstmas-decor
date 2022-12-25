@@ -1,5 +1,5 @@
 .aside__list {
-	@apply flex flex-col basis-1/5;
+	@apply flex flex-col basis-1/5 md:flex-row;
 }
 
 .page {

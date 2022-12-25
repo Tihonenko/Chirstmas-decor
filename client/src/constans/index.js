@@ -2,16 +2,20 @@ import {
 	Balls,
 	Lighting,
 	Ribbon,
+	Spray,
 	decor,
-	gift,
 	sweets,
 	credit,
 	security,
 	shopCar,
-	Lighting1,
-	Lighting2,
-	Lighting3,
-	stockings
+	stockings,
+	outdoorDecor,
+	instagram,
+	facebook,
+	pinterest,
+	aboutImg1,
+	aboutImg2,
+	aboutImg3
 } from "../img/";
 
 export const dataShopHome = [
@@ -37,21 +41,21 @@ export const dataPopular = [
 
 	{
 		title: "Christmas Balls",
-		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
+		body: "Looks for Every Style & Budget ",
 		img: Balls,
 		_id: "636b843fc13f79d73d9d7f87"
 	},
 	{
 		title: "Christmas Ribbon",
-		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
+		body: "Largest Selection in North America ",
 		img: Ribbon,
 		_id: "636401bb155a75993408cea4"
 	},
 	{
-		title: "Christmas Ribbon",
-		body: "Your #1 Resourse for Proffesional-Grade Outdoor Lighting",
-		img: Ribbon,
-		_id: "636401bb155a75993408cea4"
+		title: "Christmas Sprays",
+		body: "A Style for Every Season & Celebration ",
+		img: Spray,
+		_id: "6383cd30f249983b85370218"
 	}
 ];
 
@@ -63,10 +67,6 @@ export const dataNav = [
 	{
 		link: "Shop",
 		title: "Shop"
-	},
-	{
-		link: "#",
-		title: "Sale"
 	}
 ];
 
@@ -117,49 +117,12 @@ export const Navigation = [
 		link: "AboutUs"
 	},
 	{
-		title: "News",
-		link: "News"
-	},
-	{
 		link: "ChristmasDecor",
 		title: "Christmas Decor"
 	},
 	{
 		link: "RetroDecoration",
 		title: "Retro Decoration"
-	}
-];
-
-export const AsideNav = [
-	{
-		title: "Christmas Lights"
-	},
-	{
-		title: "Christmas Balls"
-	},
-	{
-		title: "Christmas Ribbon"
-	}
-];
-
-export const dataChristmasShop = [
-	{
-		title: "Icicle Lights - Multi",
-		price: "9.99$",
-		img: Lighting1,
-		link: "ShopItem"
-	},
-	{
-		title: "Dynamic RGB Icicle Lights",
-		price: "13.99$",
-		img: Lighting3,
-		link: "ShopItem"
-	},
-	{
-		title: "LED Umbrella Display ",
-		price: "19.99$",
-		img: Lighting2,
-		link: "ShopItem"
 	}
 ];
 
@@ -170,22 +133,35 @@ export const retroDecor = [
 		body: "If you're not crafty, you can buy a set of vintage-looking stockings instead of making them yourself. These festive stockings will look gorgeous hanging above your fireplace along with the rest of your retro decorations."
 	},
 	{
-		title: "Christmas Stockings",
-		img: stockings,
-		body: "If you're not crafty, you can buy a set of vintage-looking stockings instead of making them yourself. These festive stockings will look gorgeous hanging above your fireplace along with the rest of your retro decorations."
-	},
-	{
-		title: "Christmas Stockings",
-		img: stockings,
+		title: "Vintage Outdoor Christmas Decorations",
+		img: outdoorDecor,
 		body: "If you're not crafty, you can buy a set of vintage-looking stockings instead of making them yourself. These festive stockings will look gorgeous hanging above your fireplace along with the rest of your retro decorations."
 	}
 ];
 
-export const ShopItems = [
+export const connect = [
 	{
-		img: Lighting1,
-		title: "Icicle Lights - Multi",
-		body: "Price includes 70 lights per strand 7.5' strand Light evenly distributed through bulb Energy efficient for long life Connect up to 40 strands",
-		price: "9.99$"
+		img: facebook,
+		link: "https://www.facebook.com"
+	},
+	{
+		img: pinterest,
+		link: "https://pinterest.com"
+	},
+	{
+		img: instagram,
+		link: "https://www.instagram.com"
+	}
+];
+
+export const about = [
+	{
+		img: aboutImg1
+	},
+	{
+		img: aboutImg2
+	},
+	{
+		img: aboutImg3
 	}
 ];

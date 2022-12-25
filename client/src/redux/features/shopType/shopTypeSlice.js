@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { $host } from "../../../utils/axios";
 
-const error = (arg) => {
+const error = arg => {
 	toast.error(arg);
 };
 
@@ -10,7 +10,7 @@ const initialState = {
 	item: [],
 	isLoading: false,
 	isError: false,
-	setSelectShopType: {},
+	setSelectShopType: {}
 };
 
 export const getAllShopTypes = createAsyncThunk(
@@ -28,7 +28,7 @@ export const getAllShopTypes = createAsyncThunk(
 
 export const createShopTypes = createAsyncThunk(
 	"shopType/creteAllShopTypes",
-	async (params) => {
+	async params => {
 		try {
 			const { data } = await $host.post("shoptype", params);
 
@@ -45,22 +45,34 @@ const shopTypeSlice = createSlice({
 	reducers: {
 		setFocus(state, action) {
 			state.setSelectShopType = action.payload;
-		},
+		}
 	},
 	extraReducers: {
-		[getAllShopTypes.pending]: (state) => {
+		[getAllShopTypes.pending]: state => {
 			state.isLoading = true;
 		},
 		[getAllShopTypes.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.item = action.payload.data.shopTypes;
 		},
-		[getAllShopTypes.rejected]: (state) => {
+		[getAllShopTypes.rejected]: state => {
 			state.isLoading = false;
 			state.isError = true;
 		},
-	},
+
+		[createShopTypes.pending]: state => {
+			state.isLoading = true;
+		},
+		[createShopTypes.fulfilled]: (state, action) => {
+			state.isLoading = false;
+			state.item.push(action.payload);
+		},
+		[createShopTypes.rejected]: state => {
+			state.isLoading = false;
+			state.isError = true;
+		}
+	}
 });
 
 export const shopType = shopTypeSlice.reducer;
-export const {setFocus} = shopTypeSlice.actions
+export const { setFocus } = shopTypeSlice.actions;

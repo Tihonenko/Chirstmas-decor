@@ -31,9 +31,7 @@ class decorController {
 			const { image } = req.files;
 
 			let fileName = uuidv4() + ".jpg";
-			image.mv(
-				path.resolve(__dirname, "..", "assets/static/image", fileName)
-			);
+			image.mv(path.resolve(__dirname, "..", "assets/static/image", fileName));
 
 			const decor = await Decor.create({
 				title,
@@ -49,25 +47,28 @@ class decorController {
 
 			return res.status(201).json({ decor, message: "Decor Create" });
 		} catch (e) {
-			console.log(e);
 			res.status(500).json({ message: "Error create" });
 		}
 	}
 
 	async getAll(req, res) {
-		let { typesId, limit, page } = req.query;
-		page = page || 1;
-		limit = limit || 9;
-		let offset = page * limit - limit;
+		try {
+			let { typesId, limit, page } = req.query;
+			page = page || 1;
+			limit = limit || 9;
+			let offset = page * limit - limit;
 
-		let decors;
-		if (typesId) {
-			decors = await Decor.find({ typesId }).limit(limit).skip(offset);
-		} else {
-			decors = await Decor.find({}).limit(limit).skip(offset);
+			let decors;
+			if (typesId) {
+				decors = await Decor.find({ typesId }).limit(limit).skip(offset);
+			} else {
+				decors = await Decor.find({}).limit(limit).skip(offset);
+			}
+
+			return res.json(decors);
+		} catch (error) {
+			res.status(500).json({ message: "Server error" });
 		}
-
-		return res.json(decors);
 	}
 
 	async getOne(req, res) {
@@ -76,7 +77,20 @@ class decorController {
 			const decor = await Decor.findOne({ _id: id });
 			return res.json(decor);
 		} catch (e) {
-			console.log(e);
+			res.status(500).json({ message: "Server error" });
+		}
+	}
+
+	async removeDecor(req, res) {
+		try {
+			const { id } = req.params;
+
+			const decor = await Decor.findByIdAndDelete(id);
+			const types = await Type.findByIdAndUpdate(decor.typesId, {
+				$pull: { decorId: decor._id },
+			});
+		} catch (e) {
+			res.status(500).json({ message: "Server error" });
 		}
 	}
 }

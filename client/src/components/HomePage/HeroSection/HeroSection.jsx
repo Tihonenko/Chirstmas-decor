@@ -13,7 +13,7 @@ const HeroSection = () => {
 					<h2 className={sl.hero__second__text}>Christmas</h2>
 					<h1 className={sl.hero__main__text}>Decor</h1>
 					<p className={sl.p}>The best Christmas decoration just for you</p>
-					<ReadMore to="#" img={arrow} className="flex gap-1">
+					<ReadMore to="/aboutus" img={arrow} className="flex gap-1">
 						Read more
 					</ReadMore>
 				</div>

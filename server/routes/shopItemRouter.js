@@ -6,6 +6,6 @@ const router = new Router();
 router.post("/", shopItemController.create);
 router.get("/", shopItemController.getAll);
 router.get("/:id", shopItemController.getOne);
-router.delete("/:id", shopItemController.remove);
+router.delete("/:id", shopItemController.removeShop);
 
 export default router;

@@ -16,7 +16,8 @@ import {
 	PageItem,
 	Basket,
 	ShopPageItem,
-	News
+	AboutUs,
+	Sale
 } from "./Pages";
 import { Layout } from "./components";
 import { getMe } from "./redux/features/authSlice";
@@ -51,13 +52,13 @@ function App() {
 					<Route path="ChristmasDecor/:id" element={<PageItem />} />
 					<Route path="shop" element={<Shop />} />
 					<Route path="shop/:id" element={<ShopPageItem />} />
-					<Route path="News" element={<News />} />
 					<Route path="RetroDecoration" element={<RetroDecoration />} />
 					<Route path="Register" element={<Register />} />
 					<Route path="SignIn" element={<Login />} />
 					<Route path="User" element={<User />} />
 					<Route path="basket" element={<Basket />} />
 					<Route path="Admin" element={<AdminPage />} />
+					<Route path="AboutUs" element={<AboutUs />} />
 				</Route>
 			</Routes>
 			<ToastContainer position="top-center" limit={2} />

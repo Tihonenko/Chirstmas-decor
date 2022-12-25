@@ -41,16 +41,18 @@ const Register = () => {
 	}
 	return (
 		<section className="container min-h-full flex-auto pt-10">
-			<h2 className="text-lg font-medium text-center">Create Account</h2>
+			<h2 className="text-lg font-medium text-center smd:text-4xl">
+				Create Account
+			</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn"
+				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn lg:w-2/3 md:w-4/5 md:px-10 smd:px-2 smd:w-full"
 			>
 				<label className="flex flex-col gap-3">
-					Email Addres:
+					Email addres:
 					<MyInput
 						{...register("email", {
-							required: "Email requried field"
+							required: "Email required field"
 						})}
 						type="email"
 						errorsText={errors.email?.message}
@@ -62,7 +64,7 @@ const Register = () => {
 						type="password"
 						errorsText={errors.password?.message}
 						{...register("password", {
-							required: "Password reqiried field",
+							required: "Password required field",
 							minLength: {
 								value: 5,
 								message: "Password min length 5 symbols"
@@ -70,11 +72,11 @@ const Register = () => {
 						})}
 					/>
 				</label>
-				<div>
+				<div className="flex gap-5 items-baseline md:flex-col md:items-center">
 					<SubmitBtn disabled={!isValid} type="submit">
 						Create
 					</SubmitBtn>
-					<Link to="/SignIn" className="ml-5 inline-block a-hover">
+					<Link to="/SignIn" className="a-hover">
 						Sign In
 					</Link>
 				</div>

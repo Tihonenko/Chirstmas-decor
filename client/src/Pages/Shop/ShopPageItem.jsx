@@ -6,9 +6,17 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addShopItem } from "../../redux/features/basket/basket";
-import { getOneShop, selectShop } from "../../redux/features/shop/shopSlice";
+import {
+	getOneShop,
+	removeShop,
+	selectShop
+} from "../../redux/features/shop/shopSlice";
+import { toast } from "react-toastify";
+import { selectIsAuth } from "../../redux/features/authSlice";
 
 const PageItem = () => {
+	const isAuth = useSelector(selectIsAuth);
+
 	const params = useParams();
 	const dispatch = useDispatch();
 	const { itemOne: item, isLoading } = useSelector(selectShop);
@@ -16,6 +24,16 @@ const PageItem = () => {
 	useEffect(() => {
 		dispatch(getOneShop(params));
 	}, []);
+
+	const removeHandler = () => {
+		try {
+			dispatch(removeShop(params));
+			toast("Post remove");
+			// navigate("/");
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	if (isLoading) {
 		return <Circular />;
@@ -35,12 +53,19 @@ const PageItem = () => {
 					</div>
 
 					<div className={sl.page__content}>
-						<button
-							onClick={() => dispatch(addShopItem(item))}
-							className="text-left hover:text-lightred"
-						>
-							Add to cart
-						</button>
+						<div className="flex justify-between">
+							<button
+								onClick={() => dispatch(addShopItem(item))}
+								className="text-left hover:text-lightred"
+							>
+								Add to cart
+							</button>
+							{isAuth && (
+								<button onClick={removeHandler} className="hover:text-lightred">
+									Remove
+								</button>
+							)}
+						</div>
 						<h2>{item?.title}</h2>
 						<h4>Desciption</h4>
 						<p className={sl.description_text}>{item?.description}</p>

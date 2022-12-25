@@ -15,7 +15,7 @@ const AboutUs = () => {
 					We share our love for Christmas around the world, we now ship to over
 					30 countries.
 				</p>
-				<ReadMore to="">Read more...</ReadMore>
+				<ReadMore to="/aboutus">Read more...</ReadMore>
 			</div>
 		</section>
 	);

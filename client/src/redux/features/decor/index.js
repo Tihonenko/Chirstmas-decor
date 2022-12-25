@@ -30,6 +30,22 @@ export const createDecor = createAsyncThunk(
 		}
 	}
 );
+
+export const removeDecor = createAsyncThunk(
+	"decor/removeDecor",
+	async params => {
+		try {
+			const { id } = params;
+
+			const { data } = await $host.delete(`/decor/${id}`, id);
+			// const { data } = await $host.post("/decor", params);
+
+			return { data, toast: toast(data.message) };
+		} catch (e) {
+			error(e.response.data.message);
+		}
+	}
+);
 export const getAllDecor = createAsyncThunk("decor/getAllDecor", async arg => {
 	try {
 		const { typesId, limit } = arg;
@@ -91,6 +107,20 @@ export const decorSlice = createSlice({
 		},
 		[createDecor.rejected]: state => {
 			state.isLoading = false;
+			state.isError = true;
+		},
+
+		//Remove decor
+		[removeDecor.pending]: (state, action) => {
+			state.isLoading = true;
+		},
+		[removeDecor.fulfilled]: (state, action) => {
+			state.isLoading = false;
+			state.item = state.item.filter(item => item._id !== action.payload);
+		},
+		[removeDecor.rejected]: (state, action) => {
+			state.isLoading = false;
+			state.isError = true;
 		},
 
 		// Get all Decor
@@ -103,6 +133,7 @@ export const decorSlice = createSlice({
 		},
 		[getAllDecor.rejected]: state => {
 			state.isLoading = false;
+			state.isError = true;
 		},
 
 		//Get one Decor

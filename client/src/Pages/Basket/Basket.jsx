@@ -24,7 +24,7 @@ const Basket = () => {
 	return (
 		<section className=" container middle__content mt-10">
 			<h2 className={sl.title__basket}>Your Basket</h2>
-			<div className="flex flex-col gap-3 items-center">
+			<div className="flex flex-1 flex-col gap-3 items-center">
 				{basket?.map(item => (
 					<BasketItem key={item._id} item={item} />
 				))}

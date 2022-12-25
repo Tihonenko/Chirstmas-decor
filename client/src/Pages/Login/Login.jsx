@@ -42,13 +42,13 @@ const Login = () => {
 
 	return (
 		<section className="container min-h-full flex-auto pt-10">
-			<h2 className="text-lg font-medium text-center">Sign In</h2>
+			<h2 className="text-lg font-medium text-center smd:text-4xl">Sign In</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn"
+				className="flex flex-col gap-5 max-w-[509] w-1/2 mx-auto px-20 py-10 border-gray-600 border-btn lg:w-2/3 md:w-4/5 md:px-10 smd:px-2 smd:w-full"
 			>
 				<label className="flex flex-col gap-3">
-					Email Addres:
+					Email addres:
 					<MyInput
 						type="email"
 						{...register("email", {
@@ -71,11 +71,11 @@ const Login = () => {
 						errorsText={errors.password?.message}
 					/>
 				</label>
-				<div>
+				<div className="flex gap-5 items-baseline md:flex-col md:items-center">
 					<SubmitBtn disabled={!isValid} type="submit">
 						Sign In
 					</SubmitBtn>
-					<Link to="/register" className="ml-5 inline-block a-hover">
+					<Link to="/register" className="a-hover">
 						Register
 					</Link>
 				</div>

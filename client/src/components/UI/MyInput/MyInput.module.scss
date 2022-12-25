@@ -1,5 +1,6 @@
 .MyInput {
 	@apply outline-none px-4 py-2 rounded-btn min-w-[240px]
+    md:min-w-full
     transition-all border border-gray-400 bg-white
     
     focus:text-lightblack placeholder:text-gray-400

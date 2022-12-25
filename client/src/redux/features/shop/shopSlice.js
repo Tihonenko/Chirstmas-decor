@@ -53,6 +53,19 @@ export const createShop = createAsyncThunk("shop/createShop", async params => {
 	}
 });
 
+export const removeShop = createAsyncThunk("shop/removeShop", async params => {
+	try {
+		const { id } = params;
+
+		const { data } = await $host.delete(`/shopitem/${id}`, id);
+		// const { data } = await $host.post("/decor", params);
+
+		return { data, toast: toast(data.message) };
+	} catch (e) {
+		error(e.response.data.message);
+	}
+});
+
 const shopSlice = createSlice({
 	name: "shop",
 	initialState,
@@ -90,6 +103,7 @@ const shopSlice = createSlice({
 			state.itemOne = {};
 			state.isError = true;
 		},
+
 		// Creata shop
 		[createShop.pending]: state => {
 			state.isLoading = true;
@@ -101,6 +115,19 @@ const shopSlice = createSlice({
 		},
 		[createShop.rejected]: state => {
 			state.item = [];
+			state.isError = true;
+		},
+
+		//Remove shop
+		[removeShop.pending]: (state, action) => {
+			state.isLoading = true;
+		},
+		[removeShop.fulfilled]: (state, action) => {
+			state.isLoading = false;
+			state.item = state.item.filter(item => item._id !== action.payload);
+		},
+		[removeShop.rejected]: (state, action) => {
+			state.isLoading = false;
 			state.isError = true;
 		}
 	}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import sl from "./header.module.scss";
 import { dataNav } from "../../constans/";
 import { bag, user, menu, close } from "../../img/";
+import NavItem from "./nav/NavItem";
 import { useSelector } from "react-redux";
 import { selectIsAdmin } from "../../redux/features/authSlice";
+import NavImg from "./nav/NavImg";
 
 const Header = () => {
 	const [isActive, setIsActive] = useState(false);
@@ -12,40 +13,28 @@ const Header = () => {
 	return (
 		<header className="border-b border-lightblack py-[30px]">
 			<div className="relative container h-[55px]  bg-transparent ">
-				<nav className="reltive flex justify-between items-center">
+				<nav className="relative flex justify-between items-center">
 					<Link to="" className="text-logo outline-none">
 						DECOR
 					</Link>
 
 					<ul className="flex gap-[40px] md:hidden">
 						{dataNav.map((obj, idx) => (
-							<li key={idx}>
-								<Link
-									to={obj.link}
-									className="a-hover text-base font-medium relative"
-								>
-									{obj.title}
-								</Link>
-							</li>
+							<NavItem key={idx} to={obj.link}>
+								{obj.title}
+							</NavItem>
 						))}
 					</ul>
 
 					<ul className="flex gap-[40px]">
-						<li>
-							<Link to="/User">
-								<img src={user} alt={`user`} />
-							</Link>
-						</li>
-						<li>
-							<Link to="/basket">
-								<img src={bag} alt={`user`} />
-							</Link>
-						</li>
+						{/* ДОДЕЛАТЬ ЧЕРЕЗ MAP */}
+						<NavImg src={user} to={`/user`}></NavImg>
+						<NavImg src={bag} to={`/basket`}></NavImg>
+
 						<li>
 							<div
 								onClick={() => setIsActive(prev => !prev)}
 								className="flex flex-1 justify-end items-center"
-								// {[sl.menu, isActive ? sl.menu_active : ''].join(' ')}
 							>
 								<img
 									src={isActive ? close : menu}
