@@ -2,7 +2,7 @@
 
 Website made with:
 
--React
--NodeJS
--Tailwindcss, SASS
--React Redux Toolkit
+- React
+- NodeJS
+- Tailwindcss, SASS
+- React Redux Toolkit
